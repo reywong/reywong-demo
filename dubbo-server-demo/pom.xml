@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.com.yto.reywong.demo</groupId>
-    <artifactId>dubbo-servver-demo</artifactId>
+    <artifactId>dubbo-server-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
