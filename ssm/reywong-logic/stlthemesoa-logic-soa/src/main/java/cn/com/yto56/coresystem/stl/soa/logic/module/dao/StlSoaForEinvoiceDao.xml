@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.com.yto56.coresystem.stl.soa.logic.module.dao.StlSoaForEinvoiceDao" >
+  <resultMap id="BaseResultMap" type="cn.com.yto56.coresystem.stl.soa.logic.module.domain.TStlBNetDetail" >
+   
+   <result column="waybill_no" property="waybillNo" jdbcType="VARCHAR" />
+   <result column="bill_no" property="billNo" jdbcType="VARCHAR" />
+   <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+   <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+   <result column="taking_time" property="takingTime" jdbcType="TIMESTAMP" />
+   <result column="source_org_code" property="sourceOrgCode" jdbcType="VARCHAR" />
+   <result column="source_org_name" property="sourceOrgName" jdbcType="VARCHAR" />
+   <result column="receive_amount" property="receiveAmount" jdbcType="DOUBLE" />
+   <result column="refer_amount" property="referAmount" jdbcType="DOUBLE" />
+   <result column="balance_amount" property="balanceAmount" jdbcType="DOUBLE" />
+   <result column="balance_type" property="balanceType" jdbcType="VARCHAR" />
+    
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+		waybill_no,
+		bill_no,
+		create_time,
+		modify_time,
+		taking_time,
+		source_org_code,
+		source_org_name,
+		receive_amount,
+		refer_amount,
+		balance_amount,
+		balance_type
+  </sql>
+  
+  
+  <select id="selectBnetAmount" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from YTSTL.T_STL_EMP_CASH_DETAILS
+    where waybill_no in 
+     <foreach item="item" index="index" collection="array" open="(" separator="," close=")"> 
+    #{item}
+    </foreach>
+    
+  </select>
+ 
+
+</mapper>

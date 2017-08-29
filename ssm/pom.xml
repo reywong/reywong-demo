@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.com.yto56.coresystem.stl.soa</groupId>
+    <artifactId>reywong-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>reywong-demo</name>
+    <url>http://maven.apache.org</url>
+    <inceptionYear>2017</inceptionYear>
+
+
+    <properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <dependency.scope>compile</dependency.scope>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <junit.version>4.12</junit.version>
+
+        <servlet.api.version>2.5</servlet.api.version>
+        <jsp.api.version>2.2</jsp.api.version>
+        <jstl>1.2</jstl>
+        <taglibs>1.1.2</taglibs>
+
+        <log4j.version>2.3</log4j.version>
+        <org.slf4j.version>1.7.12</org.slf4j.version>
+
+        <org.springframework.version>4.1.5.RELEASE</org.springframework.version>
+        <org.aspectj.aspectjrt.version>1.6.12</org.aspectj.aspectjrt.version>
+        <org.aspectj.aspectjweaver.version>1.7.4</org.aspectj.aspectjweaver.version>
+        <jackson.version>2.6.2</jackson.version>
+
+        <com.alibaba.fastjson>1.1.36</com.alibaba.fastjson>
+        <dom4j.version>1.6.1</dom4j.version>
+
+        <com.caucho.hessian>4.0.38</com.caucho.hessian>
+        <netty.version>4.1.9.Final</netty.version>
+
+        <com.oracle>10.2.0.4.0</com.oracle>
+        <mysql.version>5.1.25</mysql.version>
+        <druid.version>1.0.31</druid.version>
+
+        <org.quartz-scheduler>2.2.1</org.quartz-scheduler>
+
+        <net.sf.ehcache>1.5.0</net.sf.ehcache>
+        <redis.clients.jedis>2.9.0</redis.clients.jedis>
+        <kafka.version>0.8.0</kafka.version>
+
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.3.6</zookeeper.version>
+        <zookeeper.client.version>0.1</zookeeper.client.version>
+
+        <mybatis.version>3.2.1</mybatis.version>
+        <spring.mybatis.version>1.3.1</spring.mybatis.version>
+
+        <itext.version>4.2.1</itext.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--start test-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!--end test-->
+
+            <!--start jsp servlet-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--end jsp servlet-->
+
+            <!-- log4j begin -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${org.slf4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${org.slf4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-1.2-api</artifactId>
+                <version>${log4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-web</artifactId>
+                <version>${log4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!-- log4j end -->
+
+            <!--aop-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${org.aspectj.aspectjrt.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${org.aspectj.aspectjweaver.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <!--start dom4j-->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end dom4j-->
+
+            <!--start ehcache-->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${net.sf.ehcache}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end ehcache-->
+
+            <!--start json 转换工具-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${com.alibaba.fastjson}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end json 转换工具-->
+
+            <!--start redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.clients.jedis}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end redis-->
+
+            <!--start jstl-->
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>${taglibs}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end jstl-->
+
+            <!--start hession-->
+            <dependency>
+                <groupId>com.caucho</groupId>
+                <artifactId>hessian</artifactId>
+                <version>${com.caucho.hessian}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end hession-->
+
+            <!--start netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <!--end netty-->
+
+            <!--start oracle-->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>${com.oracle}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end oracle-->
+
+            <!--start mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end mysql-->
+
+            <!--start db connection pool-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--end db connection pool-->
+
+            <!--start quartz-->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${org.quartz-scheduler}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!--end quartz-->
+
+            <!-- spring lib -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-websocket</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+            <!-- end spring lib -->
+            <!-- json -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <!--start kafka-->
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_2.10</artifactId>
+                <version>${kafka.version}</version>
+                <scope>${dependency.scope}</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.sun.jdmk</groupId>
+                        <artifactId>jmxtools</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.sun.jmx</groupId>
+                        <artifactId>jmxri</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--end kafka-->
+
+            <!--dubbo start-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zookeeper.client.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--dubbo end-->
+
+            <!--start mybatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${spring.mybatis.version}</version>
+            </dependency>
+            <!--end mybatis-->
+
+            <!--start create pdf-->
+            <dependency>
+                <groupId>com.lowagie</groupId>
+                <artifactId>itext</artifactId>
+                <version>${itext.version}</version>
+            </dependency>
+            <!--end create pdf-->
+
+            <!--satrt read pdf-->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>2.0.7</version>
+            </dependency>
+            <!--end read pdf-->
+        </dependencies>
+    </dependencyManagement>
+
+
+    <!-- 使用maven 部署构件至Nexus -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skip>${skip_maven_deploy}</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>yto56.coresystem.release</id>
+            <name>stl-release</name>
+            <url>http://10.1.208.135:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>yto56.coresystem.snapshot</id>
+            <name>stl-snapshot</name>
+            <url>http://10.1.208.135:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <modules>
+        <module>reywong-logic</module>
+        <module>reywong-business</module>
+        <module>reywong-application</module>
+    </modules>
+
+</project>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.yto56.coresystem.stl.soa.logic.module.dao.SysInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.yto56.coresystem.stl.soa.logic.module.domain.SysInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stl_soa_appId" property="stlSoaAppid" jdbcType="VARCHAR" />
+    <result column="stl_soa_key" property="stlSoaKey" jdbcType="VARCHAR" />
+    <result column="stl_soa_sysName" property="stlSoaSysname" jdbcType="VARCHAR" />
+    <result column="stl_soa_sysRemark" property="stlSoaSysremark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stl_soa_appId, stl_soa_key, stl_soa_sysName, stl_soa_sysRemark, create_time, 
+    update_time, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_stl_sysinfo
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_stl_sysinfo
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="cn.com.yto56.coresystem.stl.soa.logic.module.domain.SysInfo" >
+    insert into t_stl_sysinfo (id, stl_soa_appId, stl_soa_key, 
+      stl_soa_sysName, stl_soa_sysRemark, create_time, 
+      update_time, status)
+    values (#{id,jdbcType=INTEGER}, #{stlSoaAppid,jdbcType=VARCHAR}, #{stlSoaKey,jdbcType=VARCHAR}, 
+      #{stlSoaSysname,jdbcType=VARCHAR}, #{stlSoaSysremark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.yto56.coresystem.stl.soa.logic.module.domain.SysInfo" >
+    insert into t_stl_sysinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stlSoaAppid != null" >
+        stl_soa_appId,
+      </if>
+      <if test="stlSoaKey != null" >
+        stl_soa_key,
+      </if>
+      <if test="stlSoaSysname != null" >
+        stl_soa_sysName,
+      </if>
+      <if test="stlSoaSysremark != null" >
+        stl_soa_sysRemark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stlSoaAppid != null" >
+        #{stlSoaAppid,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaKey != null" >
+        #{stlSoaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaSysname != null" >
+        #{stlSoaSysname,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaSysremark != null" >
+        #{stlSoaSysremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.yto56.coresystem.stl.soa.logic.module.domain.SysInfo" >
+    update t_stl_sysinfo
+    <set >
+      <if test="stlSoaAppid != null" >
+        stl_soa_appId = #{stlSoaAppid,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaKey != null" >
+        stl_soa_key = #{stlSoaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaSysname != null" >
+        stl_soa_sysName = #{stlSoaSysname,jdbcType=VARCHAR},
+      </if>
+      <if test="stlSoaSysremark != null" >
+        stl_soa_sysRemark = #{stlSoaSysremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.yto56.coresystem.stl.soa.logic.module.domain.SysInfo" >
+    update t_stl_sysinfo
+    set stl_soa_appId = #{stlSoaAppid,jdbcType=VARCHAR},
+      stl_soa_key = #{stlSoaKey,jdbcType=VARCHAR},
+      stl_soa_sysName = #{stlSoaSysname,jdbcType=VARCHAR},
+      stl_soa_sysRemark = #{stlSoaSysremark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

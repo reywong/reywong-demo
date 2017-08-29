@@ -1,0 +1,11 @@
+{
+    "name": "stlthemesoa",
+    "version": "1.0.0",
+    "description": "财务模块接口开发定义",
+    "title": "接口规范",
+    "url": "http://10.129.221.158:8888",
+    "header": {
+        "title": "返回首页",
+        "filename": "header.md"
+    }
+}
