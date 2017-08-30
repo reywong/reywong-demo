@@ -471,22 +471,14 @@
         </plugins>
     </build>
 
-    <distributionManagement>
+    <repositories>
         <repository>
-            <id>yto56.coresystem.release</id>
-            <name>stl-release</name>
-            <url>http://10.1.208.135:8081/nexus/content/repositories/releases/</url>
+            <id>reywong-maven-repo</id>
+            <url>https://raw.githubusercontent.com/reywong/maven-repo/master/repository</url>
         </repository>
-        <snapshotRepository>
-            <id>yto56.coresystem.snapshot</id>
-            <name>stl-snapshot</name>
-            <url>http://10.1.208.135:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+    </repositories>
 
     <modules>
-        <module>reywong-common</module>
         <module>reywong-logic</module>
         <module>reywong-business</module>
         <module>reywong-application</module>
