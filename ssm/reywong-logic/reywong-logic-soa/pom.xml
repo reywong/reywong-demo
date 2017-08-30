@@ -25,8 +25,9 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>cn.com.yto56.coresystem.stl.soa</groupId>
+            <groupId>cn.com.yto.reywong.demo</groupId>
             <artifactId>reywong-common-framework</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
