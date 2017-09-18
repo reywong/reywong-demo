@@ -1,0 +1,13 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Application-Context: reywong:-1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 70
+
+{
+  "id" : 1,
+  "password" : "reywong",
+  "userName" : "reywong"
+}
+----

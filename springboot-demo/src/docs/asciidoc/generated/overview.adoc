@@ -1,0 +1,19 @@
+= spring boot中使用Swagger2
+
+== Overview
+更多Spring boot 请关注
+
+=== Version information
+Version: 1.0
+
+Terms of service: http://www.baidu.com
+
+=== URI scheme
+Host: localhost:8080
+BasePath: /
+
+=== Tags
+
+* user-info-controller: User Info Controller
+
+

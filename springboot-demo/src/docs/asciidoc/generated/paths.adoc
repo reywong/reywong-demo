@@ -1,0 +1,65 @@
+== Resources
+=== User-info-controller
+:hardbreaks:
+User Info Controller
+
+==== 获取用户列表
+----
+GET /userInfo/getUserInfo
+----
+
+===== Description
+:hardbreaks:
+调用test get
+
+===== Responses
+[options="header"]
+|===
+|HTTP Code|Description|Schema
+|200|OK|string
+|401|Unauthorized|No Content
+|403|Forbidden|No Content
+|404|Not Found|No Content
+|===
+
+===== Consumes
+
+* application/json
+
+===== Produces
+
+* */*
+
+===== Example CURL request
+:hardbreaks:
+[source,bash]
+----
+$ curl 'http://localhost:8080/userInfo/getUserInfo' -i -H 'Accept: application/json'
+----
+
+===== Example HTTP request
+:hardbreaks:
+[source,http,options="nowrap"]
+----
+GET /userInfo/getUserInfo HTTP/1.1
+Accept: application/json
+Host: localhost:8080
+
+----
+
+===== Example HTTP response
+:hardbreaks:
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Application-Context: reywong:-1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 70
+
+{
+  "id" : 1,
+  "password" : "reywong",
+  "userName" : "reywong"
+}
+----
+
