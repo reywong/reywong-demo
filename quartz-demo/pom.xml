@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.com.yto.reywong.demo</groupId>
+    <artifactId>quartz-demo</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <org.codehaus.jackson>1.9.13</org.codehaus.jackson>
+        <org.slf4j.version>1.5.8</org.slf4j.version>
+    </properties>
+    <dependencies>
+        <!-- quartz-web的依赖 -->
+        <dependency>
+            <groupId>com.github.quartzweb</groupId>
+            <artifactId>quartz-web</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <!-- 日志依赖 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+        <!-- jetty依赖 -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>8.1.22.v20160922</version>
+        </dependency>
+        <!-- jetty依赖 -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>8.1.22.v20160922</version>
+        </dependency>
+        <!--quartz依赖-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+
+    </dependencies>
+<repositories>
+    <repository>
+        <id>reywong-maven-repo</id>
+        <url>http://central.maven.org/maven2/com/github/quartzweb/quartz-web</url>
+    </repository>
+</repositories>
+
+</project>
