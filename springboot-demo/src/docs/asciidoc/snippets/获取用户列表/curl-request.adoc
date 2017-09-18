@@ -1,4 +1,4 @@
 [source,bash]
 ----
-$ curl 'http://localhost:8080/userInfo/getUserInfo' -i -H 'Accept: application/json'
+$ curl 'http://localhost:8080/userInfo/getUserInfo/1' -i -H 'Accept: application/json'
 ----

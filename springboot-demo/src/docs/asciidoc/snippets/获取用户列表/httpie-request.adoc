@@ -1,4 +1,4 @@
 [source,bash]
 ----
-$ http GET 'http://localhost:8080/userInfo/getUserInfo' 'Accept:application/json'
+$ http GET 'http://localhost:8080/userInfo/getUserInfo/1' 'Accept:application/json'
 ----

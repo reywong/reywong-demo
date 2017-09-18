@@ -4,10 +4,11 @@ package cn.com.yto.reywong.tool.springboot.test.controller;
 import cn.com.yto.reywong.tool.springboot.test.business.IUserInfoBiz;
 import cn.com.yto.reywong.tool.springboot.test.domain.UserInfo;
 import com.alibaba.fastjson.JSON;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/userInfo")
+@Api(value = "测试接口")
 public class UserInfoController {
     private Logger logger = LoggerFactory.getLogger(UserInfoController.class);
 
@@ -25,13 +27,13 @@ public class UserInfoController {
 
 
     @ApiOperation(value = "获取用户列表", httpMethod = "GET", notes = "调用test get")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "id", value = "用户ID", paramType = "path", required = true, dataType = "String")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用户id",paramType = "path", required = true, dataType = "int")
 //            @ApiImplicitParam(name = "model", value = "用户详细实体user", required = true, dataType = "Model")
-//    })
-    @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
-    public String getUserInfo() {
-        UserInfo userInfo = userInfoBizImpl.getUserInfo(1);
+    })
+    @RequestMapping(value = "/getUserInfo/{id}", method = RequestMethod.GET)
+    public String getUserInfo(@PathVariable Integer id) {
+        UserInfo userInfo = userInfoBizImpl.getUserInfo(id);
         return JSON.toJSONString(userInfo);
     }
 

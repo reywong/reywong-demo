@@ -1,6 +1,6 @@
 [source,http,options="nowrap"]
 ----
-GET /userInfo/getUserInfo HTTP/1.1
+GET /userInfo/getUserInfo/1 HTTP/1.1
 Accept: application/json
 Host: localhost:8080
 

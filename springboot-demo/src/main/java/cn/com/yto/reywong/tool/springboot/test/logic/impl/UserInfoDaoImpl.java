@@ -14,6 +14,7 @@ import java.sql.SQLException;
 @Repository
 public class UserInfoDaoImpl implements IUserInfoDao {
     @Autowired
+    @Qualifier("slavejdbc")
     JdbcTemplate jdbcTemplate;
 
     @Override

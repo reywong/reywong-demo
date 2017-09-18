@@ -1,18 +1,21 @@
-== Resources
-=== User-info-controller
-:hardbreaks:
-User Info Controller
-
-==== 获取用户列表
+== Paths
+=== 获取用户列表
 ----
-GET /userInfo/getUserInfo
+GET /userInfo/getUserInfo/{id}
 ----
 
-===== Description
+==== Description
 :hardbreaks:
 调用test get
 
-===== Responses
+==== Parameters
+[options="header"]
+|===
+|Type|Name|Description|Required|Schema|Default
+|PathParameter|id|用户id|true|integer (int32)|
+|===
+
+==== Responses
 [options="header"]
 |===
 |HTTP Code|Description|Schema
@@ -22,32 +25,36 @@ GET /userInfo/getUserInfo
 |404|Not Found|No Content
 |===
 
-===== Consumes
+==== Consumes
 
 * application/json
 
-===== Produces
+==== Produces
 
 * */*
 
-===== Example CURL request
+==== Tags
+
+* user-info-controller
+
+==== Example CURL request
 :hardbreaks:
 [source,bash]
 ----
-$ curl 'http://localhost:8080/userInfo/getUserInfo' -i -H 'Accept: application/json'
+$ curl 'http://localhost:8080/userInfo/getUserInfo/1' -i -H 'Accept: application/json'
 ----
 
-===== Example HTTP request
+==== Example HTTP request
 :hardbreaks:
 [source,http,options="nowrap"]
 ----
-GET /userInfo/getUserInfo HTTP/1.1
+GET /userInfo/getUserInfo/1 HTTP/1.1
 Accept: application/json
 Host: localhost:8080
 
 ----
 
-===== Example HTTP response
+==== Example HTTP response
 :hardbreaks:
 [source,http,options="nowrap"]
 ----

@@ -1,6 +1,7 @@
 package test;
 
 import cn.com.yto.reywong.tool.springboot.test.App;
+import cn.com.yto.reywong.tool.springboot.test.Swagger2;
 import io.github.robwin.markup.builder.MarkupLanguage;
 import io.github.robwin.swagger2markup.GroupBy;
 import org.asciidoctor.*;
@@ -12,7 +13,6 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,6 +20,7 @@ import springfox.documentation.staticdocs.Swagger2MarkupResultHandler;
 
 import java.io.File;
 
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
@@ -28,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs(outputDir = "src/docs/asciidoc/snippets")
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = App.class)
+@SpringBootTest(classes = {App.class, Swagger2.class})
 @WebAppConfiguration
 public class TestDocumentation {
     private String snippetDir = "src/docs/asciidoc/snippets";
@@ -38,15 +39,14 @@ public class TestDocumentation {
 
     @After
     public void Test() throws Exception {
-        mockMvc.perform(get("/v2/api-docs")
-                .accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/v2/api-docs").accept(MediaType.APPLICATION_JSON))
                 .andDo(Swagger2MarkupResultHandler.outputDirectory(outputDir)
                         .withExamples(snippetDir)
-                        .withPathsGroupedBy(GroupBy.TAGS)
                         .withMarkupLanguage(MarkupLanguage.ASCIIDOC)
                         .build())
                 .andExpect(status().isOk())
                 .andReturn();
+
 
         // 转成asciiDoc，并加入Example
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
@@ -74,10 +74,10 @@ public class TestDocumentation {
 
     @Test
     public void TestApi() throws Exception {
-        mockMvc.perform(get("/userInfo/getUserInfo")
+        mockMvc.perform(get("/userInfo/getUserInfo/1" )
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andDo(MockMvcRestDocumentation.document("获取用户列表", preprocessResponse(prettyPrint())));
+                .andDo(document("获取用户列表", preprocessResponse(prettyPrint())));
     }
 
 
