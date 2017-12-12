@@ -16,12 +16,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by wangrui on 2017/7/31.
  */
-@RestController
+@Controller
 @RequestMapping(value = "/userInfo")
 @Api(value = "测试接口")
 public class UserInfoController {

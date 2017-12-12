@@ -3,7 +3,6 @@ package test;
 import cn.com.yto.reywong.tool.springboot.test.App;
 import cn.com.yto.reywong.tool.springboot.test.Swagger2;
 import io.github.robwin.markup.builder.MarkupLanguage;
-import io.github.robwin.swagger2markup.GroupBy;
 import org.asciidoctor.*;
 import org.junit.After;
 import org.junit.Test;
